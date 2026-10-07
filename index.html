@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orion Studios — Independent iOS App Studio</title>
-<meta name="description" content="Orion Studios is an independent iOS studio. Our first app, TripCache, tracks travel expenses beautifully — with more apps in flight.">
+<title>Orion Studios · Independent iOS App Studio</title>
+<meta name="description" content="Orion Studios is an independent iOS studio. Our first app, TripCache, tracks travel expenses beautifully, with more apps in flight.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Orion Studios · Independent iOS App Studio">
+<meta property="og:description" content="We build small iOS apps, properly. Our first app, TripCache, tracks travel expenses beautifully.">
+<meta property="og:image" content="screenshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --void:#080B18;
-    --ink:#10152B;
-    --ink-2:#141A33;
-    --line:rgba(226,232,255,.09);
-    --starlight:#EAE8F4;
-    --dim:#9298B0;
-    --faint:#5C6280;
-    --gold:#E7B75F;
-    --gold-soft:rgba(231,183,95,.14);
-    --radius:20px;
-    --display:"Bricolage Grotesque",Georgia,serif;
+    --paper:#F7F4EE;
+    --ink:#1C1A15;
+    --dim:#6E6A5F;
+    --faint:#A39D90;
+    --line:rgba(28,26,21,.12);
+    --accent:#B98A2F;
+    --display:"Newsreader",Georgia,serif;
     --body:"Instrument Sans",-apple-system,system-ui,sans-serif;
     --mono:"Space Mono",ui-monospace,monospace;
   }
@@ -31,247 +33,168 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
   body{
-    background:var(--void);
-    color:var(--starlight);
+    background:var(--paper);
+    color:var(--ink);
     font-family:var(--body);
     font-size:17px;
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    font-optical-sizing:auto;
   }
-  ::selection{background:var(--gold);color:var(--void)}
+  ::selection{background:var(--accent);color:var(--paper)}
   a{color:inherit}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
   .mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-
-  /* ---------- star field ---------- */
-  #stars{position:fixed;inset:0;z-index:0;pointer-events:none}
-  main,header,footer{position:relative;z-index:1}
 
   /* ---------- nav ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(14px);
-    background:rgba(8,11,24,.72);
+    background:rgba(247,244,238,.88);
+    backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.01em}
-  .brand svg{display:block}
-  .nav-links{display:flex;gap:34px;list-style:none;align-items:center}
-  .nav-links a{text-decoration:none;color:var(--dim);font-size:15px;font-weight:500;transition:color .2s}
-  .nav-links a:hover{color:var(--starlight)}
-  .nav-cta{
-    color:var(--void)!important;background:var(--gold);
-    padding:9px 18px;border-radius:99px;font-weight:600;
-    transition:transform .2s,box-shadow .2s;
-  }
-  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(231,183,95,.35)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.01em}
+  .brand-mark{width:30px;height:30px;border-radius:7px;display:block}
+  .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--dim);font-size:15px;font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:var(--ink)}
   @media(max-width:760px){.nav-links li:not(:last-child){display:none}}
 
   /* ---------- hero ---------- */
-  .hero{padding:96px 0 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:calc(100vh - 72px)}
-  .hero-copy .mono{color:var(--gold);display:block;margin-bottom:22px}
+  .hero{padding:120px 0 110px}
+  .hero .mono{color:var(--accent);display:block;margin-bottom:24px}
   h1{
     font-family:var(--display);
-    font-size:clamp(44px,6.2vw,84px);
-    font-weight:640;
-    font-variation-settings:"opsz" 96;
-    line-height:1.02;
-    letter-spacing:-.02em;
-    margin-bottom:26px;
+    font-size:clamp(40px,5.5vw,72px);
+    font-weight:560;
+    font-variation-settings:"opsz" 72;
+    line-height:1.05;
+    letter-spacing:-.015em;
+    max-width:14ch;
+    margin-bottom:28px;
+    text-wrap:balance;
   }
-  h1 em{font-style:normal;color:var(--gold)}
-  .hero-copy p{color:var(--dim);font-size:19px;max-width:46ch;margin-bottom:36px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:14px 26px;border-radius:99px;text-decoration:none;
-    font-weight:600;font-size:15.5px;transition:transform .2s,box-shadow .2s,border-color .2s;
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{color:var(--dim);font-size:19px;max-width:52ch;margin-bottom:32px;text-wrap:pretty}
+  .text-link{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:600;font-size:16px;text-decoration:none;
+    border-bottom:1px solid var(--accent);padding-bottom:2px;
+    transition:gap .15s;
   }
-  .btn-gold{background:var(--gold);color:var(--void)}
-  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(231,183,95,.35)}
-  .btn-ghost{border:1px solid var(--line);color:var(--starlight)}
-  .btn-ghost:hover{border-color:rgba(231,183,95,.5)}
-
-  /* constellation */
-  .sky{position:relative;height:min(72vh,680px)}
-  .sky svg{width:100%;height:100%;overflow:visible}
-  .c-line{stroke:rgba(234,232,244,.16);stroke-width:1;stroke-dasharray:3 5}
-  .star{fill:#CDD3EE}
-  .star-major{fill:#fff}
-  .star-gold{fill:var(--gold)}
-  .halo{fill:none;stroke:var(--gold);opacity:.35}
-  .pulse{animation:pulse 3.2s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.08;transform:scale(1.5)}}
-  .twinkle{animation:twinkle 4.5s ease-in-out infinite}
-  @keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
-  .star-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--faint);text-transform:uppercase}
-  .star-tag.gold{fill:var(--gold)}
-  .sky a{cursor:pointer}
-  .sky a:hover .star-tag{fill:var(--starlight)}
-  @media(max-width:900px){
-    .hero{grid-template-columns:1fr;padding-top:64px;min-height:0}
-    .sky{height:420px;order:-1}
-  }
+  .text-link:hover{gap:12px}
+  .text-link .arr{color:var(--accent)}
 
   /* ---------- section scaffolding ---------- */
-  section{padding:110px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
-  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:20px;color:var(--gold)}
-  .eyebrow::before{content:"";width:7px;height:7px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px var(--gold)}
-  .eyebrow .coord{color:var(--faint)}
-  h2{font-family:var(--display);font-size:clamp(32px,4vw,52px);font-weight:620;letter-spacing:-.015em;line-height:1.08;margin-bottom:18px}
-  .lede{color:var(--dim);font-size:18.5px;max-width:58ch}
+  section{padding:96px 0;border-top:1px solid var(--line);scroll-margin-top:68px}
+  .eyebrow{display:block;color:var(--accent);margin-bottom:16px}
+  h2{font-family:var(--display);font-size:clamp(30px,3.6vw,46px);font-weight:560;letter-spacing:-.012em;line-height:1.1;margin-bottom:16px;text-wrap:balance}
+  .lede{color:var(--dim);font-size:18px;max-width:56ch;text-wrap:pretty}
 
   /* ---------- TripCache ---------- */
-  .flagship{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:56px}
-  .feature-list{list-style:none;display:grid;gap:26px;margin-top:38px}
-  .feature-list li{display:grid;grid-template-columns:44px 1fr;gap:18px}
-  .f-ic{
-    width:44px;height:44px;border-radius:12px;background:var(--gold-soft);
-    display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;
-  }
-  .feature-list h3{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:4px}
-  .feature-list p{color:var(--dim);font-size:15.5px}
-  .store-row{display:flex;gap:14px;align-items:center;margin-top:40px;flex-wrap:wrap}
-  .store-btn{
-    display:inline-flex;flex-direction:column;text-decoration:none;
-    background:var(--starlight);color:var(--void);padding:10px 22px;border-radius:14px;line-height:1.25;
-    transition:transform .2s,box-shadow .2s;
-  }
-  .store-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(234,232,244,.18)}
-  .store-btn small{font-size:11px;font-weight:500;opacity:.7}
-  .store-btn span{font-weight:700;font-size:17px}
-  .rating{color:var(--dim);font-size:14px}
-  .rating b{color:var(--gold);letter-spacing:2px}
+  .flagship{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center;margin-top:56px}
+  .flagship .codename{color:var(--faint);display:block;margin-bottom:14px}
+  .flagship h3{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:560;letter-spacing:-.01em;margin-bottom:16px;text-wrap:balance}
+  .flagship p{color:var(--dim);max-width:50ch;margin-bottom:16px}
+  .flagship p:last-of-type{margin-bottom:0}
+  .store-row{display:flex;gap:24px;align-items:center;margin-top:32px;flex-wrap:wrap}
 
-  /* phone mockup */
-  .phone-stage{display:flex;justify-content:center;position:relative}
-  .phone-stage::before{
-    content:"";position:absolute;inset:8% -6% 0;
-    background:radial-gradient(ellipse at 50% 42%,rgba(231,183,95,.13),transparent 62%);
-    pointer-events:none;
-  }
+  /* phone frame */
+  .phone-stage{display:flex;justify-content:center}
   .phone{
-    width:310px;border-radius:48px;background:#0D1120;
-    border:1px solid rgba(234,232,244,.14);
-    box-shadow:0 0 0 10px #060814,0 40px 90px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.04);
-    padding:14px;position:relative;
+    width:290px;border-radius:46px;background:var(--ink);
+    padding:12px;
+    box-shadow:0 24px 60px rgba(28,26,21,.18);
   }
-  .screen{
-    border-radius:36px;overflow:hidden;
-    background:#060814;
-  }
+  .screen{border-radius:35px;overflow:hidden;background:#000}
   .scr-shot{display:block;width:100%;height:auto}
-  @media(max-width:900px){.flagship{grid-template-columns:1fr;gap:56px}.phone-stage{order:-1}}
+  @media(max-width:900px){.flagship{grid-template-columns:1fr;gap:52px}.phone-stage{order:-1}}
 
   /* ---------- in flight ---------- */
-  .flight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
-  .flight-card{
-    background:linear-gradient(180deg,var(--ink) 0%,rgba(16,21,43,.4) 100%);
-    border:1px solid var(--line);border-radius:var(--radius);
-    padding:32px 28px;position:relative;overflow:hidden;
-    transition:transform .25s,border-color .25s;
+  .flight-list{margin-top:48px;border-top:1px solid var(--line)}
+  .flight-row{
+    display:grid;grid-template-columns:180px 1fr auto;gap:32px;align-items:baseline;
+    padding:32px 0;border-bottom:1px solid var(--line);
   }
-  .flight-card:hover{transform:translateY(-4px);border-color:rgba(231,183,95,.35)}
-  .flight-card .coord{color:var(--faint);display:block;margin-bottom:26px}
-  .flight-card h3{font-family:var(--display);font-size:23px;font-weight:620;margin-bottom:10px}
-  .flight-card p{color:var(--dim);font-size:15px;margin-bottom:26px}
-  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-  .status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);animation:twinkle 2.4s ease-in-out infinite}
-  .flight-card.live .status::before{animation:none;box-shadow:0 0 10px var(--gold)}
-  .flight-card.live{border-color:rgba(231,183,95,.4)}
-  @media(max-width:860px){.flight-grid{grid-template-columns:1fr}}
+  .flight-row .codename{color:var(--faint)}
+  .flight-row h3{font-family:var(--display);font-size:22px;font-weight:560;margin-bottom:4px}
+  .flight-row p{color:var(--dim);font-size:15.5px;max-width:52ch}
+  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+  .status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--faint)}
+  @media(max-width:860px){
+    .flight-row{grid-template-columns:1fr;gap:10px}
+  }
 
   /* ---------- studio ---------- */
-  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:64px}
-  .values h3{font-family:var(--display);font-size:20px;font-weight:620;margin-bottom:12px;display:flex;align-items:center;gap:12px}
-  .values h3 .k{color:var(--gold);font-family:var(--mono);font-size:12px}
-  .values p{color:var(--dim);font-size:15.5px}
-  @media(max-width:860px){.values{grid-template-columns:1fr;gap:36px}}
+  .values{margin-top:56px;border-top:1px solid var(--line)}
+  .value{
+    display:grid;grid-template-columns:80px 280px 1fr;gap:32px;align-items:baseline;
+    padding:32px 0;border-bottom:1px solid var(--line);
+  }
+  .value .num{font-family:var(--mono);font-size:13px;color:var(--accent)}
+  .value h3{font-family:var(--display);font-size:21px;font-weight:560}
+  .value p{color:var(--dim);font-size:15.5px;max-width:56ch}
+  @media(max-width:860px){
+    .value{grid-template-columns:1fr;gap:8px}
+  }
 
   /* ---------- about ---------- */
-  .about-grid{display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:center;margin-top:56px}
+  .about-grid{display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:start;margin-top:56px}
   .portrait{
-    position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;
-    background:linear-gradient(160deg,var(--ink-2) 0%,#0B0F22 100%);
+    aspect-ratio:4/5;border-radius:16px;overflow:hidden;
     border:1px solid var(--line);
-    box-shadow:0 30px 70px rgba(0,0,0,.5);
-  }
-  .portrait::after{
-    content:"";position:absolute;inset:0;border-radius:inherit;
-    box-shadow:inset 0 0 0 1px rgba(231,183,95,.18);pointer-events:none;
+    box-shadow:0 20px 48px rgba(28,26,21,.12);
   }
   .portrait img{width:100%;height:100%;object-fit:cover;display:block}
-  .portrait-ph{
-    position:absolute;inset:0;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:14px;color:var(--faint);text-align:center;padding:24px;
-  }
-  .portrait-ph svg{opacity:.7}
-  .portrait-ph .mono{font-size:10.5px;letter-spacing:.16em}
-  .portrait-tag{
-    position:absolute;left:18px;bottom:16px;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
-    background:rgba(8,11,24,.72);border:1px solid rgba(231,183,95,.3);
-    padding:6px 12px;border-radius:99px;backdrop-filter:blur(8px);
-  }
-  .about-copy h3{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:620;margin-bottom:6px}
-  .about-copy .role{color:var(--gold);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:22px}
-  .about-copy p{color:var(--dim);margin-bottom:18px;max-width:60ch}
-  .fun-fact{
-    display:inline-flex;align-items:baseline;gap:12px;margin-top:10px;
-    border:1px solid var(--line);border-left:3px solid var(--gold);
-    border-radius:12px;padding:14px 20px;color:var(--starlight);font-size:15.5px;
-  }
-  .fun-fact .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
-  .friends{
-    margin-top:26px;padding-top:24px;border-top:1px solid var(--line);max-width:60ch;
-  }
-  .friends .k{
-    display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--gold);margin-bottom:10px;
-  }
+  .about-copy h3{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:560;margin-bottom:12px}
+  .about-copy .role{color:var(--accent);display:block;margin-bottom:24px}
+  .about-copy p{color:var(--dim);margin-bottom:16px;max-width:60ch}
+  .fun-fact{margin-top:32px;padding-top:32px;border-top:1px solid var(--line);max-width:60ch}
+  .fun-fact .k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+  .fact-stats{display:flex;gap:56px}
+  .stat-n{display:block;font-family:var(--display);font-size:40px;font-weight:480;line-height:1;color:var(--ink);margin-bottom:8px}
+  .stat-n .plus{color:var(--accent)}
+  .stat-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .friends{margin-top:32px;padding-top:32px;border-top:1px solid var(--line);max-width:60ch}
+  .friends .k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
   .friends p{margin-bottom:0}
   @media(max-width:900px){
     .about-grid{grid-template-columns:1fr;gap:44px}
-    .portrait{max-width:380px}
+    .portrait{max-width:340px}
   }
 
   /* ---------- contact ---------- */
-  .contact{text-align:center}
-  .contact h2{margin-left:auto;margin-right:auto}
-  .contact .lede{margin:0 auto 42px}
-  .contact .eyebrow{justify-content:center}
+  .contact{background:var(--ink);color:var(--paper);border-top:none;text-align:center}
+  .contact .eyebrow{color:var(--accent)}
+  .contact .lede{color:rgba(247,244,238,.6);margin:0 auto 40px}
+  .contact h2{font-size:clamp(34px,4.5vw,56px)}
+  .contact-mail{
+    font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:560;
+    text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:4px;
+    transition:opacity .15s;
+  }
+  .contact-mail:hover{opacity:.75}
 
-  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--faint);font-size:14px}
+  footer{padding:36px 0;color:var(--faint);font-size:14px}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
   .foot .mono{font-size:11px}
 </style>
 </head>
 <body>
 
-<canvas id="stars" aria-hidden="true"></canvas>
-
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Orion Studios home">
-      <!-- Logomark: iOS app-icon squircle holding Orion's Belt -->
-      <svg width="36" height="36" viewBox="0 0 40 40" fill="none" role="img" aria-label="Orion Studios logo">
-        <path d="M20 1.5c13 0 18.5 5.5 18.5 18.5S33 38.5 20 38.5 1.5 33 1.5 20 7 1.5 20 1.5Z" fill="#10152B" stroke="rgba(231,183,95,.55)" stroke-width="1.4"/>
-        <circle cx="13" cy="26.5" r="2.4" fill="#E7B75F"/>
-        <circle cx="20" cy="20" r="3.1" fill="#EAE8F4"/>
-        <circle cx="27" cy="13.5" r="2.4" fill="#E7B75F"/>
-        <path d="M13 26.5 20 20l7-6.5" stroke="rgba(234,232,244,.35)" stroke-width="1" stroke-dasharray="2 3"/>
-      </svg>
+      <img class="brand-mark" src="logo.png" alt="" width="30" height="30">
       Orion Studios
     </a>
     <ul class="nav-links">
       <li><a href="#tripcache">TripCache</a></li>
-      <li><a href="#inflight">In flight</a></li>
       <li><a href="#studio">Studio</a></li>
       <li><a href="#about">About</a></li>
-      <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -280,84 +203,34 @@
 
   <!-- ============ HERO ============ -->
   <div class="wrap hero">
-    <div class="hero-copy">
-      <span class="mono">Independent iOS studio</span>
-      <h1>Hi, we are <em>Orion Studios.</em></h1>
-      <p>Orion Studios is an independent iOS studio crafting small, beautifully-engineered apps.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold" href="#tripcache">Explore TripCache</a>
-        <a class="btn btn-ghost" href="#inflight">See what's next ↗</a>
-      </div>
-    </div>
-
-    <!-- Signature: the Orion constellation as our product chart. Each star is an app. -->
-    <div class="sky" aria-label="The Orion constellation, mapped to Orion Studios apps">
-      <svg viewBox="0 0 600 700" role="img">
-        <!-- constellation lines -->
-        <path class="c-line" fill="none" d="M180 150 L300 60 L420 170 M180 150 L255 340 M420 170 L345 380 M255 340 L300 360 L345 380 M255 340 L210 560 M345 380 L410 590"/>
-        <!-- minor stars -->
-        <circle class="star twinkle" cx="300" cy="60" r="3"><title>Meissa</title></circle>
-        <circle class="star-major star twinkle" style="animation-delay:1.1s" cx="180" cy="150" r="4.5"><title>Betelgeuse</title></circle>
-        <circle class="star twinkle" style="animation-delay:2s" cx="420" cy="170" r="3.6"><title>Bellatrix</title></circle>
-        <circle class="star twinkle" style="animation-delay:.6s" cx="210" cy="560" r="3.4"><title>Saiph</title></circle>
-        <!-- Belt: projects in flight -->
-        <a href="#inflight"><g>
-          <circle class="halo pulse" cx="255" cy="340" r="10" style="transform-origin:255px 340px"/>
-          <circle class="star-major" cx="255" cy="340" r="4"/>
-          <text class="star-tag" x="238" y="320" text-anchor="end">Alnitak · in flight</text>
-        </g></a>
-        <a href="#inflight"><g>
-          <circle class="halo pulse" cx="345" cy="380" r="10" style="animation-delay:1.4s;transform-origin:345px 380px"/>
-          <circle class="star-major" cx="345" cy="380" r="4"/>
-          <text class="star-tag" x="365" y="384">Mintaka · in flight</text>
-        </g></a>
-        <circle class="star-major twinkle" style="animation-delay:1.7s" cx="300" cy="360" r="3.6"><title>Alnilam</title></circle>
-        <!-- Rigel: TripCache, our brightest star -->
-        <a href="#tripcache"><g>
-          <circle class="halo" cx="410" cy="590" r="16"/>
-          <circle class="halo pulse" cx="410" cy="590" r="24" style="transform-origin:410px 590px"/>
-          <circle class="star-gold" cx="410" cy="590" r="7"/>
-          <text class="star-tag gold" x="432" y="586">Rigel · TripCache</text>
-          <text class="star-tag" x="432" y="602">Live on the App Store</text>
-        </g></a>
-      </svg>
-    </div>
+    <span class="mono">Independent iOS studio</span>
+    <h1>Small apps, <em>made with care.</em></h1>
+    <p>Orion Studios is an independent studio crafting a handful of apps and holding each one to the same standard: clear, considered, and polished from the icon down to the timing of an animation.</p>
+    <a class="text-link" href="#tripcache">See our first app <span class="arr">↓</span></a>
   </div>
 
   <!-- ============ TRIPCACHE ============ -->
   <section id="tripcache">
     <div class="wrap">
-      <div class="eyebrow mono">Flagship <span class="coord">· Rigel — RA 05h 14m · Dec −08° 12′</span></div>
+      <span class="eyebrow mono">Our apps</span>
       <h2>TripCache</h2>
-      <p class="lede">Every trip has a budget, and every budget has a story. TripCache keeps travel expenses effortless to capture and beautiful to read — offline, on-device, in any currency.</p>
+      <p class="lede">Every trip has a budget, and every budget has a story. TripCache keeps travel expenses effortless to capture and beautiful to read, offline, on-device, in any currency.</p>
 
       <div class="flagship">
         <div>
-          <ul class="feature-list">
-            <li>
-              <span class="f-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M5 8l7-5 7 5M7 21h10"/></svg></span>
-              <div><h3>Capture in seconds</h3><p>Log an expense in two taps at the gate, on the train, or mid-tapas. Categories, receipts, and split costs included.</p></div>
-            </li>
-            <li>
-              <span class="f-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></span>
-              <div><h3>Multi-currency, zero math</h3><p>Spend in yen, kroner, and pesos on the same trip. TripCache converts everything back to your home currency automatically.</p></div>
-            </li>
-            <li>
-              <span class="f-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 15l3-3 2 2 3-4"/></svg></span>
-              <div><h3>Reports worth keeping</h3><p>One tap turns a trip into a clean, shareable report — for reimbursements, tax season, or the group chat.</p></div>
-            </li>
-            <li>
-              <span class="f-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-              <div><h3>Private by design</h3><p>Your spending lives on your device and your iCloud — never on our servers. Works fully offline, syncs when you land.</p></div>
-            </li>
-          </ul>
+<!--          <span class="codename mono">Rigel · our first app</span>-->
+          <h3>Capture in seconds. Settle up in one tap.</h3>
+          <p>Log an expense in two taps at the gate, on the train, or mid-tapas, with categories, receipts, and split costs included. Spend in yen, kroner, and pesos on the same trip; TripCache converts everything back to your home currency automatically.</p>
+          <p>When the trip ends, one tap turns it into a clean, shareable report for reimbursements, tax season, or the group chat. Your spending lives on your device and your iCloud, never on our servers. It works fully offline and syncs when you land.</p>
           <div class="store-row">
-            <a class="store-btn" href="https://apps.apple.com/app/id6758454461/" aria-label="Download TripCache on the App Store"><small>Download on the</small><span>App Store</span></a>
-            <span class="rating"><b>★★★★★</b>&nbsp; Loved by early travelers</span>
+            <a href="https://apps.apple.com/app/id6758454461/">
+              <img src="app-store-badge.svg" alt="Download on the App Store" style="width: 180px; height: 60px; object-fit: contain;" />
+            </a>
+            <a class="text-link" href="https://tripcache.app" target="_blank" rel="noopener">Visit Tripcache <span class="arr">↗</span></a>
           </div>
         </div>
 
-        <div class="phone-stage" aria-hidden="true">
+        <div class="phone-stage">
           <div class="phone">
             <div class="screen">
               <img class="scr-shot" src="screenshot.png" alt="TripCache expense list for a Mexico City trip" width="1206" height="2622">
@@ -368,55 +241,57 @@
     </div>
   </section>
 
-  <!-- ============ IN FLIGHT ============ -->
+  <!-- ============ IN FLIGHT (hidden for now, pending rework) ============
   <section id="inflight">
     <div class="wrap">
-      <div class="eyebrow mono">The belt <span class="coord">· what we're building next</span></div>
+      <span class="eyebrow mono">What's next</span>
       <h2>In flight</h2>
-      <p class="lede">Every project at Orion carries the name of a star until it ships. Two are on the launch pad now — here's what we can share.</p>
+      <p class="lede">Every project at Orion carries the name of a star until it ships. Two are on the launch pad now; here's what we can share.</p>
 
-      <div class="flight-grid">
-        <article class="flight-card live">
-          <span class="coord mono">Rigel · β Orionis</span>
-          <h3>TripCache</h3>
-          <p>Travel expense tracking that feels effortless. Our first app, and the standard everything after it has to meet.</p>
-          <span class="status">Live on the App Store</span>
-        </article>
-        <article class="flight-card">
-          <span class="coord mono">Alnitak · ζ Orionis</span>
-          <h3>Codename Alnitak</h3>
-          <p>A companion for the journey itself. It shares TripCache's DNA — quick capture, quiet design — aimed at a new corner of travel.</p>
+      <div class="flight-list">
+        <div class="flight-row">
+          <span class="codename mono">Alnitak · ζ Orionis</span>
+          <div>
+            <h3>Codename Alnitak</h3>
+            <p>A companion for the journey itself. It shares TripCache's DNA of quick capture and quiet design, aimed at a new corner of travel.</p>
+          </div>
           <span class="status">In flight · 2026</span>
-        </article>
-        <article class="flight-card">
-          <span class="coord mono">Mintaka · δ Orionis</span>
-          <h3>Codename Mintaka</h3>
-          <p>Earlier on the runway, and further from home. A utility we've wanted on our own phones for years. More at the right moment.</p>
-          <span class="status">In flight · Exploring</span>
-        </article>
+        </div>
+        <div class="flight-row">
+          <span class="codename mono">Mintaka · δ Orionis</span>
+          <div>
+            <h3>Codename Mintaka</h3>
+            <p>Earlier on the runway, and further from home. A utility we've wanted on our own phones for years. More at the right moment.</p>
+          </div>
+          <span class="status">Exploring</span>
+        </div>
       </div>
     </div>
   </section>
+  -->
 
   <!-- ============ STUDIO ============ -->
   <section id="studio">
     <div class="wrap">
-      <div class="eyebrow mono">The studio <span class="coord">· how we work</span></div>
+      <span class="eyebrow mono">The studio</span>
       <h2>Small studio. High standards.</h2>
-      <p class="lede">Orion Studios is an independent shop that builds a few apps and builds them properly. Sailors once crossed oceans by this constellation; we hold our software to the same idea — something you can rely on, wherever you are.</p>
+      <p class="lede">Orion Studios is an independent shop that builds a few apps and builds them properly. Sailors once crossed oceans by this constellation; we hold our software to the same idea: something you can rely on, wherever you are.</p>
 
       <div class="values">
-        <div>
-          <h3><span class="k">SWIFT</span> Native or nothing</h3>
-          <p>Every app is written in Swift and SwiftUI, tuned for the platform it lives on. No wrappers, no lowest common denominator — iOS apps that feel like iOS.</p>
+        <div class="value">
+          <span class="num">01</span>
+          <h3>Native or nothing</h3>
+          <p>Every app is written in Swift and SwiftUI, tuned for the platform it lives on. No wrappers, no lowest common denominator. Just iOS apps that feel like iOS.</p>
         </div>
-        <div>
-          <h3><span class="k">DETAIL</span> Sweat the last 10%</h3>
+        <div class="value">
+          <span class="num">02</span>
+          <h3>Sweat the last 10%</h3>
           <p>Haptics, animation curves, empty states, the weight of a tap target. The parts most teams cut are the parts people feel every day.</p>
         </div>
-        <div>
-          <h3><span class="k">TRUST</span> Privacy as a feature</h3>
-          <p>We build products, not audiences. Your data stays yours — on your device, in your iCloud, out of our hands. That's a promise across every app we ship.</p>
+        <div class="value">
+          <span class="num">03</span>
+          <h3>Privacy as a feature</h3>
+          <p>We build products, not audiences. Your data stays yours: on your device, in your iCloud, out of our hands. That's a promise across every app we ship.</p>
         </div>
       </div>
     </div>
@@ -425,38 +300,29 @@
   <!-- ============ ABOUT ============ -->
   <section id="about">
     <div class="wrap">
-      <div class="eyebrow mono">About <span class="coord">· the person behind the studio</span></div>
+      <span class="eyebrow mono">About</span>
       <h2>The navigator.</h2>
 
       <div class="about-grid">
-        <!-- PHOTO: replace the .portrait-ph div below with
-             <img src="your-photo.jpg" alt="Portrait of [Your Name]">  -->
         <div class="portrait">
-<!--         <div class="portrait-ph">-->
-        <img src="profile.jpeg" alt="Portrait of Srinivas">
-<!--            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">-->
-<!--              <path d="M36 4c22 0 32 10 32 32S58 68 36 68 4 58 4 36 14 4 36 4Z" stroke="rgba(234,232,244,.25)" stroke-width="1.5"/>-->
-<!--              <circle cx="36" cy="29" r="10" stroke="rgba(234,232,244,.4)" stroke-width="1.5"/>-->
-<!--              <path d="M17 58c3.5-9 10.5-14 19-14s15.5 5 19 14" stroke="rgba(234,232,244,.4)" stroke-width="1.5" stroke-linecap="round"/>-->
-<!--              <circle cx="55" cy="14" r="2" fill="#E7B75F"/>-->
-<!--            </svg>-->
-<!--            <span class="mono">Your photo here</span>-->
-<!--          </div>-->
-          <span class="portrait-tag">Founder · Orion Studios</span>
+          <img src="profile.jpeg" alt="Portrait of Srinivas">
         </div>
 
         <div class="about-copy">
           <h3>Srinivas</h3>
-          <span class="role">Founder &amp; Developer</span>
-          <p>Srinivas works across the full arc of an app — product thinking, interface and visual design, Swift development, and the server-side plumbing that holds it all together. What ties it together is a care for products that feel clear, considered, and polished, from the shape of an icon down to the timing of an animation.</p>
-          <p>He is an active member of the Apple developer community, sharing work in progress and trading notes with other indie builders. Outside of work, he's' usually planning the next trip — which is exactly how TripCache came to exist.</p>
+          <span class="role mono">Founder &amp; Developer</span>
+          <p>Srinivas works across the full arc of an app: product thinking, interface and visual design, Swift development, and the server-side plumbing that holds it all together. What ties it together is a care for products that feel clear, considered, and polished, from the shape of an icon down to the timing of an animation.</p>
+          <p>He is an active member of the Apple developer community, sharing work in progress and trading notes with other indie builders. Outside of work, he's usually planning the next trip, which is exactly how TripCache came to exist.</p>
           <div class="fun-fact">
             <span class="k">Fun fact</span>
-            <span>Srinivas has traveled to 25+ countries and lived in 3.</span>
+            <div class="fact-stats">
+              <div><span class="stat-n">25<span class="plus">+</span></span><span class="stat-l">Countries traveled</span></div>
+              <div><span class="stat-n">3</span><span class="stat-l">Called home</span></div>
+            </div>
           </div>
           <div class="friends">
             <span class="k">+ Friends</span>
-            <p>Some projects need a skill set the studio doesn't carry in house. For those, Srinivas works with a small circle of designers and engineers he has known and shipped with for years. The team scales to fit the work, and the standard of craft and the closeness of the working relationship stay exactly the same.</p>
+            <p>Some projects need a skill set the studio doesn't carry in house. For those, Srinivas works with a small circle of designers and engineers he has known and shipped with for years. The team scales to fit the work; the standard of craft and the closeness of the working relationship stay exactly the same.</p>
           </div>
         </div>
       </div>
@@ -466,13 +332,10 @@
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <div class="eyebrow mono">Contact</div>
+      <span class="eyebrow mono">Contact</span>
       <h2>Say hello.</h2>
       <p class="lede">Questions about TripCache, press inquiries, or just want to talk apps? Our inbox is open.</p>
-      <div class="hero-actions" style="justify-content:center">
-        <a class="btn btn-gold" href="mailto:hello@orionstudios.app">hello@orionstudios.app</a>
-        <a class="btn btn-ghost" href="#" aria-label="Follow Orion Studios">Follow along ↗</a>
-      </div>
+      <a class="contact-mail" href="mailto:hello@orionstudios.app">hello@orionstudios.app</a>
     </div>
   </section>
 
@@ -481,42 +344,8 @@
 <footer>
   <div class="wrap foot">
     <span>© 2026 Orion Studios. All rights reserved.</span>
-    <span class="mono">Charted under Orion · 05h 35m −05° 23′</span>
   </div>
 </footer>
 
-<script>
-/* Ambient star field — subtle, and static if the visitor prefers reduced motion */
-(function(){
-  const c=document.getElementById('stars'),x=c.getContext('2d');
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let stars=[],w,h;
-  function resize(){
-    w=c.width=innerWidth*devicePixelRatio;
-    h=c.height=innerHeight*devicePixelRatio;
-    c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
-    stars=Array.from({length:Math.min(180,innerWidth/6)},()=>({
-      x:Math.random()*w,y:Math.random()*h,
-      r:(Math.random()*1.1+.3)*devicePixelRatio,
-      p:Math.random()*Math.PI*2,s:.4+Math.random()*.8,
-      warm:Math.random()<.12
-    }));
-    if(reduce)draw(0);
-  }
-  function draw(t){
-    x.clearRect(0,0,w,h);
-    for(const st of stars){
-      const a=reduce?.5:.25+.45*(.5+.5*Math.sin(t/1000*st.s+st.p));
-      x.globalAlpha=a;
-      x.fillStyle=st.warm?'#E7B75F':'#CDD3EE';
-      x.beginPath();x.arc(st.x,st.y,st.r,0,7);x.fill();
-    }
-    if(!reduce)requestAnimationFrame(draw);
-  }
-  addEventListener('resize',resize);
-  resize();
-  if(!reduce)requestAnimationFrame(draw);
-})();
-</script>
 </body>
 </html>
